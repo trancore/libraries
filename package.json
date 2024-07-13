@@ -2,9 +2,11 @@
   "name": "libraries",
   "version": "1.0.0",
   "description": "Windows用のファイル検索アプリケーション。",
-  "main": "index.js",
+  "main": "main.ts",
   "scripts": {
-    "build": "tsc"
+    "build": "tsc",
+    "launch": "electron ./dist/main.js",
+    "start": "npm run build && npm run launch"
   },
   "author": "Kosuke Iwasaki",
   "license": "MIT",
