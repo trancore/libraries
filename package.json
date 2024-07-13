@@ -3,10 +3,14 @@
   "version": "1.0.0",
   "description": "Windows用のファイル検索アプリケーション。",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "build": "tsc"
+  },
   "author": "Kosuke Iwasaki",
   "license": "MIT",
   "devDependencies": {
-    "electron": "^31.2.0"
+    "electron": "^31.2.0",
+    "ts-loader": "^9.5.1",
+    "typescript": "^5.5.3"
   }
 }
