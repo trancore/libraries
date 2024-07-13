@@ -1,0 +1,12 @@
+{
+  "name": "libraries",
+  "version": "1.0.0",
+  "description": "Windows用のファイル検索アプリケーション。",
+  "main": "index.js",
+  "scripts": {},
+  "author": "Kosuke Iwasaki",
+  "license": "MIT",
+  "devDependencies": {
+    "electron": "^31.2.0"
+  }
+}
