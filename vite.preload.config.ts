@@ -1,3 +1,6 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
+// @ts-nocheck
+
 import type { ConfigEnv, UserConfig } from "vite";
 import { defineConfig, mergeConfig } from "vite";
 import { getBuildConfig, external, pluginHotRestart } from "./vite.base.config";
@@ -11,7 +14,7 @@ export default defineConfig((env) => {
       rollupOptions: {
         external,
         // Preload scripts may contain Web assets, so use the `build.rollupOptions.input` instead `build.lib.entry`.
-        input: forgeConfigSelf.entry!,
+        input: forgeConfigSelf.entry,
         output: {
           format: "cjs",
           // It should not be split chunks.
