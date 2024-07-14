@@ -1,21 +1,45 @@
 {
-  "name": "libraries",
+  "name": "liblaries",
+  "productName": "liblaries",
   "version": "1.0.0",
-  "description": "Windows用のファイル検索アプリケーション。",
-  "main": "main.ts",
+  "description": "indows用のファイル検索アプリケーション",
+  "main": ".vite/build/main.js",
   "scripts": {
-    "build": "tsc",
-    "launch": "electron ./dist/main.js",
-    "start": "npm run build && npm run launch"
+    "start": "electron-forge start",
+    "package": "electron-forge package",
+    "make": "electron-forge make",
+    "publish": "electron-forge publish",
+    "lint": "eslint --ext .ts,.tsx ."
   },
-  "author": "Kosuke Iwasaki",
-  "license": "MIT",
   "devDependencies": {
-    "electron": "^31.2.0",
-    "ts-loader": "^9.5.1",
-    "typescript": "^5.5.3"
+    "@electron-forge/cli": "^7.4.0",
+    "@electron-forge/maker-deb": "^7.4.0",
+    "@electron-forge/maker-rpm": "^7.4.0",
+    "@electron-forge/maker-squirrel": "^7.4.0",
+    "@electron-forge/maker-zip": "^7.4.0",
+    "@electron-forge/plugin-auto-unpack-natives": "^7.4.0",
+    "@electron-forge/plugin-fuses": "^7.4.0",
+    "@electron-forge/plugin-vite": "^7.4.0",
+    "@electron/fuses": "^1.8.0",
+    "@typescript-eslint/eslint-plugin": "^5.0.0",
+    "@typescript-eslint/parser": "^5.0.0",
+    "electron": "31.2.0",
+    "eslint": "^8.0.1",
+    "eslint-plugin-import": "^2.25.0",
+    "ts-node": "^10.0.0",
+    "typescript": "~4.5.4",
+    "vite": "^5.0.12"
+  },
+  "keywords": [],
+  "author": {
+    "name": "Kosuke Iwasaki"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "electron-squirrel-startup": "^1.0.1"
   },
   "volta": {
-    "node": "20.15.1"
+    "node": "20.15.1",
+    "npm": "10.7.0"
   }
 }

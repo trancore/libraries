@@ -9,7 +9,9 @@
 | Volta                      | v1.1.1     | Node.js 管理ツール           |
 | Node.js                    | v20.15.1   | JavaScript ランタイム        |
 | npm                        | v10.7.0    | Node の package マネージャー |
-| TypeScript                 | v5.5.3     | JavaScript の静的型付け言語  |
+| Electron                   | v31.2.0    |                              |
+| Electron-forge             | v7.4.0     |                              |
+| TypeScript                 | v4.5.4 ~   | JavaScript の静的型付け言語  |
 
 ## ❓ What's Libraries?
 
