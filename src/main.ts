@@ -1,13 +1,17 @@
 import { app, BrowserWindow } from "electron";
-import path from "path";
+import path from "node:path";
 
 // Handle creating/removing shortcuts on Windows when installing/uninstalling.
 if (require("electron-squirrel-startup")) {
   app.quit();
 }
 
+// http経由のコンテンツを読み込んだ時に発生するwarnを消す。
+if (process.env.NODE_ENV === "development") {
+  process.env.ELECTRON_DISABLE_SECURITY_WARNINGS = "1";
+}
+
 const createWindow = () => {
-  // Create the browser window.
   const mainWindow = new BrowserWindow({
     width: 800,
     height: 600,

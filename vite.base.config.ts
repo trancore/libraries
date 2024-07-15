@@ -1,6 +1,3 @@
-/* eslint-disable @typescript-eslint/ban-ts-comment */
-// @ts-nocheck
-
 import { builtinModules } from "node:module";
 import type { AddressInfo } from "node:net";
 import type { ConfigEnv, Plugin, UserConfig } from "vite";
@@ -46,7 +43,6 @@ export function getDefineKeys(names: string[]) {
       VITE_NAME: `${NAME}_VITE_NAME`,
     };
 
-    // biome-ignore lint/performance/noAccumulatingSpread: <explanation>
     return { ...acc, [name]: keys };
   }, define);
 }
@@ -66,7 +62,6 @@ export function getBuildDefine(env: ConfigEnv<"build">) {
           : undefined,
       [VITE_NAME]: JSON.stringify(name),
     };
-    // biome-ignore lint/performance/noAccumulatingSpread: <explanation>
     return { ...acc, ...def };
   }, {} as Record<string, unknown>);
 
