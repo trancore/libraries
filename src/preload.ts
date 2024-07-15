@@ -6,4 +6,6 @@ import { contextBridge, ipcRenderer } from 'electron';
 contextBridge.exposeInMainWorld('electron', {
   getFiles: (directoryPath: string) =>
     ipcRenderer.invoke('getFiles', directoryPath),
+  setClipboard: (listText: string) =>
+    ipcRenderer.invoke('setClipboard', listText),
 });

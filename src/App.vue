@@ -20,7 +20,9 @@
       <template v-if="result?.length > 0">
         <h2>検索結果：</h2>
         <ul v-for="filePath in result">
-          <li>{{ filePath }}</li>
+          <li @click="onClickList(filePath.address)">
+            {{ filePath.path }}
+          </li>
         </ul>
       </template>
       <p class="error-message" v-if="result?.length === 0">
@@ -38,12 +40,17 @@ const LOCAL_STORAGE = {
   DIRECTORY_PATH: 'directoryPath',
 };
 
+interface IResult {
+  address: string;
+  path: string;
+}
+
 const path = ref('');
 const searchWord = ref('');
-const result = ref<string[]>();
+const result = ref<IResult[]>();
 
 const directoryPath = computed<string>({
-  get: () => loadDirectoryPath(),
+  get: () => loadDirectoryPath() || path.value,
   set: (newValue: string) => {
     saveDirectoryPath(newValue);
     path.value = newValue;
@@ -77,8 +84,15 @@ async function searchFiles(directoryPath: string, searchWord: string) {
 async function onClickSearch() {
   const files = await searchFiles(directoryPath.value, searchWord.value);
   result.value = files.map((file) => {
-    return `${file.parentPath}/${file.name}`;
+    return {
+      address: file.parentPath,
+      path: `${file.parentPath}/${file.name}`,
+    };
   });
+}
+
+async function onClickList(listText: string) {
+  await (window as any).electron.setClipboard(listText);
 }
 </script>
 
