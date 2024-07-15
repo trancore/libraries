@@ -31,12 +31,30 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue';
+import { computed, ref } from 'vue';
 import { Dirent } from 'fs';
 
-const directoryPath = ref('');
+const LOCAL_STORAGE = {
+  DIRECTORY_PATH: 'directoryPath',
+};
+
+const path = ref('');
 const searchWord = ref('');
 const result = ref<string[]>();
+
+const directoryPath = computed<string>({
+  get: () => loadDirectoryPath(),
+  set: (newValue: string) => {
+    saveDirectoryPath(newValue);
+    path.value = newValue;
+  },
+});
+function saveDirectoryPath(newDirectoryPath: string) {
+  localStorage.setItem(LOCAL_STORAGE.DIRECTORY_PATH, newDirectoryPath);
+}
+function loadDirectoryPath() {
+  return localStorage.getItem(LOCAL_STORAGE.DIRECTORY_PATH);
+}
 
 async function searchFiles(directoryPath: string, searchWord: string) {
   try {
