@@ -1,6 +1,6 @@
 {
-  "name": "liblaries",
-  "productName": "liblaries",
+  "name": "libraries",
+  "productName": "libraries",
   "version": "1.0.0",
   "description": "indows用のファイル検索アプリケーション",
   "main": ".vite/build/main.js",
