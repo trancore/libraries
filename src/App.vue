@@ -5,11 +5,12 @@
     <form class="form">
       <div class="textform-box">
         <label class="label">ディレクトリ：</label>
-        <input class="textform" type="text" />
+        <input class="textform" type="text" v-model="directoryPath" />
+        <p>{{ directoryPath }}</p>
       </div>
       <div class="textform-box">
         <label class="label">ファイル名：</label>
-        <input class="textform" type="text" />
+        <input class="textform" type="text" v-model="faileName" />
       </div>
       <input class="button" type="button" value="検索" />
     </form>
@@ -33,7 +34,12 @@
   </main>
 </template>
 
-<script setup></script>
+<script setup>
+import { ref } from 'vue';
+
+const directoryPath = ref('');
+const fileName = ref('');
+</script>
 
 <style lang="scss">
 @import '~/assets/css/reset.scss';
