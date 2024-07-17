@@ -7,9 +7,10 @@
   "scripts": {
     "start": "electron-forge start",
     "package": "electron-forge package",
-    "make:mac": "electron-forge make",
-    "make:windows": "electron-forge make --platform=win32",
+    "make": "electron-forge make",
     "publish": "electron-forge publish",
+    "make:mac": "electron-builder --mac --x64",
+    "make:win": "electron-builder --win --x64",
     "lint": "eslint --ext .ts,.tsx .",
     "prettier": "prettier . --write"
   },
@@ -27,6 +28,7 @@
     "@typescript-eslint/parser": "^5.0.0",
     "@vitejs/plugin-vue": "^5.0.5",
     "electron": "31.2.0",
+    "electron-builder": "^24.13.3",
     "eslint": "^8.0.1",
     "eslint-plugin-import": "^2.25.0",
     "prettier": "^3.3.3",
@@ -47,5 +49,31 @@
   "volta": {
     "node": "20.15.1",
     "npm": "10.7.0"
+  },
+  "build": {
+    "appId": "com.electron.libraries",
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      ".vite/**/*"
+    ],
+    "extraMetadata": {
+      "main": ".vite/build/main.js"
+    },
+    "mac": {
+      "icon": "src/assets/images/icons/icon.icns",
+      "target": [
+        "dmg"
+      ]
+    },
+    "win": {
+      "icon": "src/assets/images/icons/icon.ico",
+      "target": "portable"
+    },
+    "nsis": {
+      "oneClick": true,
+      "allowToChangeInstallationDirectory": true
+    }
   }
 }
