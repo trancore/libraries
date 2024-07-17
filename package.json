@@ -2,7 +2,7 @@
   "name": "libraries",
   "productName": "libraries",
   "version": "1.0.0",
-  "description": "indows用のファイル検索アプリケーション",
+  "description": "ファイル検索アプリケーション",
   "main": ".vite/build/main.js",
   "scripts": {
     "start": "electron-forge start",
