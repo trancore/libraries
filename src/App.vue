@@ -1,6 +1,6 @@
 ﻿<template>
   <main>
-    <h1 class="title">📚 Libralies 📚</h1>
+    <h1 class="title">📚 Libraries 📚</h1>
     <p class="description">Welcome to Libraries! plaese search text!</p>
     <form class="form">
       <div class="textform-box">
